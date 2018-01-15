@@ -4,7 +4,7 @@
 
 ## Create
 
-```
+```objective-c
 Model* model = [Model new];
 [model creatTableWithConstrain:^(ConstraintStatement *make) {
 }];
@@ -14,7 +14,7 @@ Model* model = [Model new];
 
 ## Search sync
 
-```
+```objective-c
 NSArray* res = [[Model new] selectFormDB:@"stu" with:^(SQSatemet *context) {
     [context.where(@"age").equalTo(@(i+1000)) end];
 }];
@@ -26,8 +26,8 @@ NSArray* res = [[Model new] selectFormDB:@"stu" with:^(SQSatemet *context) {
 
 ```objective-c
 [[Model new] selectFormDBAsync:@"stu" with:^(SQSatemet *context) {
-	[context.where(@"age").equalTo(@(i+1000)) end];
-	} complite:^(NSArray *res) {
+	[context.where(@"age").equalTo(@(i+1000)) end];	
+} complite:^(NSArray *res) {
 	NSLog(@"%@",[NSDate new]);
 }];
 
@@ -47,7 +47,7 @@ NSArray* res = [[Model new] selectFormDB:@"stu" with:^(SQSatemet *context) {
 
 ## Update
 
-```
+```objective-c
 [[Model new] updateDataToDB:@"stu" context:^(SQSatemet *make) {
     [make.set(@"name").equalTo(@"ljj").where(@"name").equalTo(@"mubai") end];
 }];
@@ -57,7 +57,7 @@ NSArray* res = [[Model new] selectFormDB:@"stu" with:^(SQSatemet *context) {
 
 ## Transaction
 
-```
+```objective-c
 [SQTransaction transaction:^BOOL{
     for (int i =0; i< 100000; i++) {
         Model* mode1 = [Model new];
